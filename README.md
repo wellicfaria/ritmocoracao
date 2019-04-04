@@ -1,19 +1,19 @@
 # PROJETO DE BRINQUEDO PARA CRIANÇAS AUTISTAS.
 
-##Objetivo do Projeto
+## Objetivo do Projeto
 
 Um jogo musical confeccionado em uma base eletrônica(Raspberry) com várias funções e modos de utilização (contém luzes e emite sons de notas musicais), para crianças autistas.
 
-##Quem esta por trás do Projeto
+## Quem esta por trás do Projeto
 
 A Ritmos do Coração trabalha desde 2009 na promoção de inclusão, qualidade de vida, bem estar e cidadania das pessoas com deficiência e, a partir de 2015, iniciou as ações do Projeto Vem Brincar Também! voltadas ao Brincar Inclusivo e ao resgate das brincadeiras e brinquedos de tradição popular para que as crianças com e sem deficiência, possam compartilhar vivências afetivas e significativas favorecendo momentos de alegria, diversão e descobertas.
 
-##Contato
+## Contato
 
 Interessado em saber mais sobre o projeto, testar, participar ou contribuir.
 Entre em contato pelo e-mail contato@ritmosdocoracao.org.br 
 
-##Manual de Utilização
+## Manual de Utilização
 
 ### Cadastramento de Histórias e Sons.
 
