@@ -1,6 +1,9 @@
 import pygame
 import glob
 
+'''
+    FUNCOES PARA MANIPULACAO DAS HISTORIAS E SEUS SOM CONTIDOS NA PASTA sounds_history
+'''
 
 def _getPathSound(folder, name_sound):
     '''

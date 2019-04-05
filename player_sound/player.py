@@ -3,6 +3,10 @@ from sound import getSoundOfaHistoy
 from playsound import playsound
 import _thread
 
+'''
+    FUNCOES PARA TOCAR OS SOM
+'''
+
 
 def playOneSound(code_hist,cod_sound):
     '''
