@@ -12,11 +12,9 @@ def playOneSound(code_hist,cod_sound):
             - code_hist: Codigo da Historia
             - cod_sound: Codigo do Som
     '''
-
-    path_sounds = '../sounds_history'
     sound = getSoundOfaHistoy(code_hist,cod_sound)
-    path_sound = '{}/{}/{}'.format(path_sounds,sound['folder'],sound['name_sound'])
-    playsound(path_sound)
+    print('-> [PLAY SOUND] '+str(sound))
+    playsound(sound['path'])
 
 
 def playTogetherSound(code_hist,cod_sound):
@@ -29,4 +27,3 @@ def playTogetherSound(code_hist,cod_sound):
     '''
 
     _thread.start_new_thread( playOneSound, (code_hist,cod_sound, ) )
-

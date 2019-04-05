@@ -1,5 +1,37 @@
-
+import pygame
 import glob
+
+
+def _getPathSound(folder, name_sound):
+    '''
+        Funcao para montar o caminho para acessar o som.
+        Entrada:
+            - folder : Diretorio localizado o Audio
+            - name_sound : Nome do som com a extensao
+
+        Saida:
+            String contendo o caminho do som
+    '''
+    path_sounds = '../sounds_history'
+    path_sound = '{}/{}/{}'.format(path_sounds, folder, name_sound)
+    return path_sound
+
+
+def getDurationSound(path_sound):
+    '''
+        Funcao para retornar o duracao em segundos do som.
+
+        Entrada:
+            - path_sound: String contendo o caminho do som
+
+        Saida:
+            Inteiro contendo a quantidade em segundo da duracação do Som.
+    '''
+
+    pygame.mixer.init()
+    durantionSeconds = round(pygame.mixer.Sound(path_sound).get_length())
+
+    return durantionSeconds
 
 def  getAllHistory():
     '''
@@ -44,17 +76,24 @@ def getSoundsHistoy(code_hist):
                             - cod_sound: Codigo do Som
                             - folder: Diretorio que esta Localidado o som
                             - code_hist: Codigo da Historia que som pertence
+                            - path: Caminho completo para o som
+                            - duration : Duracao em segundos do som
     '''
     list_hist = getAllHistory()
     hist = [x for x in list_hist if x['code_hist'] == str(code_hist)][0]
     hist['sounds'] = []
     for r in glob.glob("../sounds_history/{}/*".format(hist['dir_hist'])):
+
         aux = {}
         aux['name_sound'] = r.split('\\')[1]
         aux['cod_sound'] = aux['name_sound'].split('_')[0]
         aux['folder'] = hist['dir_hist']
         aux['code_hist'] = hist['code_hist']
+        aux['path'] = _getPathSound(aux['folder'],aux['name_sound'])
+        aux['duration'] = getDurationSound(aux['path'])
+
         hist['sounds'].append(aux)
+
     return hist
 
 def getSoundOfaHistoy(code_hist,cod_sound):
@@ -74,10 +113,13 @@ def getSoundOfaHistoy(code_hist,cod_sound):
                 - cod_sound: Codigo do Som
                 - folder: Diretorio que esta Localidado o som
                 - code_hist: Codigo da Historia que som pertence
+                - path: Caminho completo para o som
+                - duration : Duracao em segundos do som
     '''
     list_sounds = getSoundsHistoy(code_hist)
 
     sound = [x for x in list_sounds['sounds'] if x['cod_sound'] == str(cod_sound)][0]
+
 
     return sound
 
@@ -93,14 +135,14 @@ def getAllHistoryAndAllSounds():
                  - name_hist: Titulo da Historia
                  - dir_hist: Diretorio onde contem os soms da historia
                  - sounds : Lista contendo dicionario com informacoes do som
-                                - name_sound: Nome do Som
-                                - cod_sound: Codigo do Som
-                                - folder: Diretorio que esta Localidado o som
-                                - code_hist: Codigo da Historia que som pertence
+                            - name_sound: Nome do Som
+                            - cod_sound: Codigo do Som
+                            - folder: Diretorio que esta Localidado o som
+                            - code_hist: Codigo da Historia que som pertence
+                            - path: Caminho completo para o som
+                            - duration : Duracao em segundos do som
     '''
     resp = []
     for h in getAllHistory():
         resp.append(getSoundsHistoy(h['code_hist']))
     return resp
-
-
