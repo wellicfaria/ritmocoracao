@@ -23,7 +23,7 @@ O Nome da pasta deve ser NumeroSequencial_Titulo da Historia. Exemplo:  '3_Joao 
 
 A extensão dos aquivos de som deve ser WAV. E podem ser convertidos para esses formatos pelo site https://online-audio-converter.com/pt/ , caso seja necessário.
 
-Dentro da Pasta criada a cima, deve ser colocados os 5 soms. O nome dos som devem ser:
+Dentro da Pasta criada a cima, deve ser colocados os 5 sons. O nome dos som devem ser:
 
 NumeroSequencialDe0a5_DescricaoDoSom.ExtensaoDoArquivo, exemplo:
 
@@ -33,3 +33,4 @@ NumeroSequencialDe0a5_DescricaoDoSom.ExtensaoDoArquivo, exemplo:
 - 3_Sapos.wav
 - 4_Vaca.wav
 
+Onde NumeroSequencial é o codigo do som. 
