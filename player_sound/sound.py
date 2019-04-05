@@ -39,9 +39,11 @@ def getSoundsHistoy(code_hist):
              - code_hist: Codigo da historia
              - name_hist: Titulo da Historia
              - dir_hist: Diretorio onde contem os soms da historia
-             - sounds : Lista contendo dicionario com informações do som
+             - sounds : Lista contendo dicionario com informacoes do som
                             - name_sound: Nome do Som
                             - cod_sound: Codigo do Som
+                            - folder: Diretorio que esta Localidado o som
+                            - code_hist: Codigo da Historia que som pertence
     '''
     list_hist = getAllHistory()
     hist = [x for x in list_hist if x['code_hist'] == str(code_hist)][0]
@@ -50,8 +52,34 @@ def getSoundsHistoy(code_hist):
         aux = {}
         aux['name_sound'] = r.split('\\')[1]
         aux['cod_sound'] = aux['name_sound'].split('_')[0]
+        aux['folder'] = hist['dir_hist']
+        aux['code_hist'] = hist['code_hist']
         hist['sounds'].append(aux)
     return hist
+
+def getSoundOfaHistoy(code_hist,cod_sound):
+    '''
+
+        Funcao que retorna um dicionario contendo as informacoes do som e de uma historia:
+
+        Entrada:
+
+            - code_hist: Codigo da historia
+            - cod_sound: Codigo do som
+
+        Saida:
+            Dicionario contendo:
+
+                - name_sound: Nome do Som
+                - cod_sound: Codigo do Som
+                - folder: Diretorio que esta Localidado o som
+                - code_hist: Codigo da Historia que som pertence
+    '''
+    list_sounds = getSoundsHistoy(code_hist)
+
+    sound = [x for x in list_sounds['sounds'] if x['cod_sound'] == str(cod_sound)][0]
+
+    return sound
 
 def getAllHistoryAndAllSounds():
     '''
@@ -64,12 +92,15 @@ def getAllHistoryAndAllSounds():
                  - code_hist: Codigo da historia
                  - name_hist: Titulo da Historia
                  - dir_hist: Diretorio onde contem os soms da historia
-                 - sounds : Lista contendo dicionario com informações do som
+                 - sounds : Lista contendo dicionario com informacoes do som
                                 - name_sound: Nome do Som
                                 - cod_sound: Codigo do Som
+                                - folder: Diretorio que esta Localidado o som
+                                - code_hist: Codigo da Historia que som pertence
     '''
     resp = []
     for h in getAllHistory():
         resp.append(getSoundsHistoy(h['code_hist']))
     return resp
+
 

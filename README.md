@@ -20,14 +20,16 @@ Entre em contato pelo e-mail contato@ritmosdocoracao.org.br
 Para cadastrar novas histórias e seus respectivos som, criar uma pasta com arquivos de som no diretório 'sounds_history'.
 
 O Nome da pasta deve ser NumeroSequencial_Titulo da Historia. Exemplo:  '3_Joao e Maria', onde '3' é o código da hisória e 'Joao e Maria' o título da história.
- 
+
+A extensão dos aquivos de som pode ser OGG ou WAV. E podem ser convertidos para esses formatos pelo site https://online-audio-converter.com/pt/ , caso seja necessário.
+
 Dentro da Pasta criada a cima, deve ser colocados os 5 soms. O nome dos som devem ser:
 
-NumeroSequencialDe0a5_DescricaoDoSom, exemplo:
+NumeroSequencialDe0a5_DescricaoDoSom.ExtensaoDoArquivo, exemplo:
 
-- 0_Burro.mp3
-- 1_Cachorro.mp3
-- 2_Gato.mp3
-- 3_Sapos.mp3
-- 4_Vaca.mp3
+- 0_Burro.wav
+- 1_Cachorro.wav
+- 2_Gato.wav
+- 3_Sapos.wav
+- 4_Vaca.wav
 
