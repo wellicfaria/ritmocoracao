@@ -1,5 +1,5 @@
 
-from sound import getSoundOfaHistoy
+from player_sound import sound as sd
 from playsound import playsound
 import _thread
 
@@ -16,7 +16,7 @@ def playOneSound(code_hist,cod_sound):
             - code_hist: Codigo da Historia
             - cod_sound: Codigo do Som
     '''
-    sound = getSoundOfaHistoy(code_hist,cod_sound)
+    sound = sd.getSoundOfaHistoy(code_hist,cod_sound)
     print('-> [PLAY SOUND] '+str(sound))
     playsound(sound['path'])
 

@@ -1,9 +1,15 @@
 import pygame
 import glob
+import os
 
 '''
     FUNCOES PARA MANIPULACAO DAS HISTORIAS E SEUS SOM CONTIDOS NA PASTA sounds_history
 '''
+
+def _getCurrentPath():
+    current_path = str(os.getcwd()).replace('\\','/').replace('/player_sound','')
+    return current_path
+
 
 def _getPathSound(folder, name_sound):
     '''
@@ -15,7 +21,7 @@ def _getPathSound(folder, name_sound):
         Saida:
             String contendo o caminho do som
     '''
-    path_sounds = '../sounds_history'
+    path_sounds = '{}/sounds_history'.format(_getCurrentPath())
     path_sound = '{}/{}/{}'.format(path_sounds, folder, name_sound)
     return path_sound
 
@@ -48,9 +54,11 @@ def  getAllHistory():
          - dir_hist: Diretorio onde contem os soms da historia
     '''
     resp = []
-    for r in glob.glob("../sounds_history/*"):
+
+    for r in glob.glob("{}/sounds_history/*".format(_getCurrentPath())):
         aux = {}
-        folder_hist = r.replace('../sounds_history\\','')
+        #print(r)
+        folder_hist = r.replace('{}/sounds_history\\'.format(_getCurrentPath()),'')
         hist = folder_hist.split('_')
         aux['code_hist'] = hist[0]
         aux['name_hist'] = hist[1]
@@ -85,7 +93,9 @@ def getSoundsHistoy(code_hist):
     list_hist = getAllHistory()
     hist = [x for x in list_hist if x['code_hist'] == str(code_hist)][0]
     hist['sounds'] = []
-    for r in glob.glob("../sounds_history/{}/*".format(hist['dir_hist'])):
+
+
+    for r in glob.glob("{}/sounds_history/{}/*".format(_getCurrentPath(),hist['dir_hist'])):
 
         aux = {}
         aux['name_sound'] = r.split('\\')[1]
@@ -149,3 +159,31 @@ def getAllHistoryAndAllSounds():
     for h in getAllHistory():
         resp.append(getSoundsHistoy(h['code_hist']))
     return resp
+
+def teste_func():
+    code_hist = '0'
+    cod_sound = '0'
+
+    print('\n_getCurrentPath:\n')
+    print(_getCurrentPath())
+
+    #print('\n_getPathSound:\n')
+    #_getPathSound(folder, name_sound)
+
+    #print('\ngetDurationSound:\n')
+    #getDurationSound(path_sound)
+
+    print('\ngetAllHistory:\n')
+    print(getAllHistory())
+
+    print('\ngetSoundsHistoy:\n')
+    print(getSoundsHistoy(code_hist))
+
+    print('\ngetSoundOfaHistoy:\n')
+    print(getSoundOfaHistoy(code_hist, cod_sound))
+
+    print('\ngetAllHistoryAndAllSounds:\n')
+    print(getAllHistoryAndAllSounds())
+
+
+#teste_func()
