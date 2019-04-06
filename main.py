@@ -26,19 +26,19 @@ for hist in sd.getAllHistory():
 
 
 def f_b1():
-    pyr.playOneSound(v.get(),'0')
+    pyr.playTogetherSound(v.get(),'0')
 
 def f_b2():
-    pyr.playOneSound(v.get(),'1')
+    pyr.playTogetherSound(v.get(),'1')
 
 def f_b3():
-    pyr.playOneSound(v.get(),'2')
+    pyr.playTogetherSound(v.get(),'2')
 
 def f_b4():
-    pyr.playOneSound(v.get(),'3')
+    pyr.playTogetherSound(v.get(),'3')
 
 def f_b5():
-    pyr.playOneSound(v.get(),'4')
+    pyr.playTogetherSound(v.get(),'4')
 
 b1 = tk.Button(frame,
                    text="Botao 1",
